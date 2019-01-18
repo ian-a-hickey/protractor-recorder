@@ -273,6 +273,8 @@
 
     function createSession() {
 
+      console.log('creatingSession')
+
       if (!vm.session.id) {
         protractorRecServer.setSnippet(false);
         protractorRecServer.setLoading(true);
@@ -319,7 +321,10 @@
     };
 
     function pauseRecording() {
+      console.log('pauseRecording');
       protractorRecServer.setRecording(false);
+      seleniumJWP.setSession(undefined);
+      vm.session.id = undefined;
     };
 
     /**
